@@ -1,0 +1,25 @@
+Actual Bar Sales = 
+VAR SalesCount = SUM(Test[Sales])
+VAR SalesTarget = sum(Test[Target]) 
+RETURN
+MIN(SalesCount , SalesTarget)
+
+Over Target = 
+VAR SalesCount = SUM(Test[Sales])
+VAR SalesTarget = sum(Test[Target]) 
+RETURN
+IF
+    (
+    SalesCount >= SalesTarget,
+    SalesCount - SalesTarget
+    )
+
+Under Target = 
+VAR SalesCount = SUM(Test[Sales])
+VAR SalesTarget = sum(Test[Target]) 
+RETURN
+IF
+    (
+    SalesCount < SalesTarget,
+    SalesTarget - SalesCount
+    )
